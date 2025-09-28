@@ -4,6 +4,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -18,19 +19,43 @@
    </head>
    <body class="roboto-font">
       <header class="bg-[#FFFBF0]">
-         <nav class="container mx-auto flex items-center justify-between px-6 py-6">
-            <!-- Logo + Title -->
-            <div class="flex items-center gap-2">
-               <img src="./icons/question.png" alt="Penguin Logo" class="w-8 h-8">
-               <h2 class="text-xl md:text-2xl font-bold "> <span class="text-[#A4BC46]"> Penguin </span> <span class="text-[#363958]">Fashion</span>  </h2>
+         <nav class="relative">
+            <div class="container mx-auto px-6">
+               <div class="flex justify-between items-center py-4">
+                  <!-- Logo -->
+                  <div class="flex items-center gap-2">
+                     <img src="./icons/question.png" alt="Penguin Logo" class="w-8 h-8">
+                     <h2 class="text-xl md:text-2xl font-bold">
+                        <span class="text-[#A4BC46]">Penguin</span> 
+                        <span class="text-[#363958]">Fashion</span>
+                     </h2>
+                  </div>
+                  <!-- Hamburger Button (Mobile) -->
+                  <div class="sm:hidden">
+                     <button type="button" command="--toggle" commandfor="mobile-menu" 
+                        class="p-2 rounded-md text-gray-700 hover:bg-gray-100">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                              d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                     </button>
+                  </div>
+                  <!-- Menu Links -->
+                  <div class="hidden sm:flex gap-6 items-center text-[#3C3C3C] font-medium">
+                     <a href="#" class="hover:text-[#A4BC46]">Home</a>
+                     <a href="#" class="hover:text-[#A4BC46]">Product</a>
+                     <a href="#" class="hover:text-[#A4BC46]">About Us</a>
+                     <a href="#" class="hover:text-[#A4BC46]">Contact</a>
+                  </div>
+               </div>
             </div>
-            <!-- Navigation Links -->
-            <div class="flex items-center gap-6 text-[#363958] font-medium">
-               <a href="#" class="text-[#3C3C3C]">Home</a>
-               <a href="#" class="text-[#3C3C3C]">Product</a>
-               <a href="#" class="text-[#3C3C3C]">About Us</a>
-               <a href="#" class="text-[#3C3C3C]">Contact</a>
-            </div>
+            <!-- Mobile Menu -->
+            <el-disclosure id="mobile-menu" hidden class="sm:hidden px-6 pb-4">
+               <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded">Home</a>
+               <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded">Product</a>
+               <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded">About Us</a>
+               <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded">Contact</a>
+            </el-disclosure>
          </nav>
          <section class="py-8">
             <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-10 px-6">
